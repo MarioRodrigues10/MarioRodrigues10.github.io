@@ -45,7 +45,7 @@ Array(200).fill().forEach(addStar)
 const spaceTexture = new THREE.TextureLoader().load('../img/space.jpg');
 scene.background = spaceTexture;
 
-const meTexture = new THREE.TextureLoader().load('../img/Eu.jpg');
+const meTexture = new THREE.TextureLoader().load('../img/Eu.jpeg');
 
 const me = new THREE.Mesh(
   new THREE.BoxGeometry(3,3,3),
