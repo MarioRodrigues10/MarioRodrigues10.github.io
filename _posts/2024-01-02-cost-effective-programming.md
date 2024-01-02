@@ -163,46 +163,28 @@ Now, let's break down the calculations for potential cost savings using AWS as a
 
 Let's assume the original response time (ORT) is 10 milliseconds, and the improved response time (IRT) is 9.6 milliseconds (10 - 0.4).
 
+#### Calculate the Number of Requests per Hour:
 
-Calculate the number of requests that can be processed in an hour for both scenarios:
-\[
-\text{Requests per Hour} = \frac{3600 \text{ seconds}}{\text{Response Time in seconds}} \times 1000 \text{ requests}
-\]
+For the original response time (ORT):
+- Requests per Hour (ORT) = (3600 seconds) / (10 milliseconds / 1000) * 1000 = 360,000 requests/hour
 
-For the original response time:
-\[
-\text{Requests per Hour (ORT)} = \frac{3600 \text{ seconds}}{(10 \text{ milliseconds} / 1000)} \times 1000 = 360,000 \text{ requests/hour}
-\]
+For the improved response time (IRT):
+- Requests per Hour (IRT) = (3600 seconds) / (9.6 milliseconds / 1000) * 1000 = 375,000 requests/hour
 
-For the improved response time:
-\[
-\text{Requests per Hour (IRT)} = \frac{3600 \text{ seconds}}{(9.6 \text{ milliseconds} / 1000)} \times 1000 = 375,000 \text{ requests/hour}
-\]
+#### Determine the Cost per Request:
 
+Let's say it's $0.000001 per request.
 
+#### Calculate the Cost Savings per Request:
 
-Determine the cost per request for the AWS service you are using. Let's say it's $0.000001 per request.
+Cost Savings per Request = (10 - 9.6) * $0.000001 = $0.0000004
 
-Calculate the cost savings per request:
-\[
-\text{Cost Savings per Request} = (\text{ORT} - \text{IRT}) \times \text{Cost per Request}
-\]
-\[
-\text{Cost Savings per Request} = (10 - 9.6) \times \$0.000001 = \$0.0000004
-\]
+#### Calculate the Total Cost Savings per Hour:
 
-Calculate the total cost savings for 1000 requests per hour:
-\[
-\text{Total Cost Savings per Hour} = \text{Cost Savings per Request} \times \text{Requests per Hour (ORT)}
-\]
+Total Cost Savings per Hour = $0.0000004 * 360,000 = $0.144
 
-\[
-\text{Total Cost Savings per Hour} = \$0.0000004 \times 360,000 = \$0.144
-\]
+#### Calculate the Total Cost Savings per Year:
 
-\[
-\text{Total Cost Savings per Year} = \$0.144 \times 24h \times 365days = \$1261.44
-\]
+Total Cost Savings per Year = $0.144 * 24 hours * 365 days = $1261.44
 
-So, in this simplified example, improving the response time by 0.4 milliseconds could potentially save \$0.144 per hour for 1000 requests. Keep in mind that these numbers are illustrative, and actual costs will depend on your specific AWS services and pricing. Always refer to the latest AWS pricing documentation for accurate and up-to-date information.
-
+So, in this simplified example, improving the response time by 0.4 milliseconds could potentially save $0.144 per hour for 1000 requests. Keep in mind that these numbers are illustrative, and actual costs will depend on your specific AWS services and pricing. Always refer to the latest AWS pricing documentation for accurate and up-to-date information.
