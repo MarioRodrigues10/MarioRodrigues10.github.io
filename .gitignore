@@ -1,8 +1,6 @@
-.DS_Store
-.bundle
-.jekyll-cache
-.sass-cache
-Gemfile.lock
-_site
-*.gem
-package-lock.json
+node_modules
+
+/.cache
+/.netlify
+/public/build
+.env
