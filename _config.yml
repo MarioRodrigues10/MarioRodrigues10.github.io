@@ -1,0 +1,14 @@
+title: Mário Rodrigues
+description: Software Engineering student
+baseurl: ""
+url: "https://mariorodrigues10.github.io" 
+markdown: kramdown
+kramdown:
+  input: GFM # GitHub Flavored Markdown for better code block support
+  syntax_highlighter: rouge # Use Rouge for syntax highlighting
+  syntax_highlighter_opts:
+    guess_lang: true # Automatically guess the language of the code block
+theme: minima 
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

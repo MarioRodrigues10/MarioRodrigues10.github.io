@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <title>Cost Effective Programming - Mário Rodrigues</title>
+</head>
+<body>    
+    <main>
+        <article>
+    <h2>Cost Effective Programming</h2>
+    <p>Published at: 02/01/2024</p>
+    <div>
+        <h2 id="introduction">Introduction</h2>
+<p>Optimizing code efficiency is not only a best practice for creating robust and responsive software but also a strategic imperative for cost-effective development. By enhancing the performance of your code, you can directly impact infrastructure costs, resource utilization, and overall system efficiency. This optimization not only leads to a more responsive and scalable application but can also translate into significant savings in terms of cloud hosting, operational expenses, and hardware requirements. In this guide, we’ll explore various tips and coding practices that empower developers to streamline their code, maximize resource utilization, and ultimately reduce associated expenses.</p>
+
+<h2 id="code-improvements">Code Improvements</h2>
+
+<h3 id="1-use-the-right-data-structures">1. Use the Right Data Structures</h3>
+<p>Choose algorithms with lower time complexity for critical operations.
+Consider data structures that are more efficient for the tasks at hand.</p>
+<h5 id="examples">Examples:</h5>
+<h6 id="using-a-map-for-fast-key-lookup">Using a Map for Fast Key Lookup</h6>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">map</span> <span class="o">=</span> <span class="p">%{</span><span class="s2">"apple"</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"orange"</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"banana"</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">value</span> <span class="o">=</span> <span class="no">Map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">map</span><span class="p">,</span> <span class="s2">"orange"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h6 id="finding-median">Finding Median</h6>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defmodule</span> <span class="no">FindingMedian</span> <span class="k">do</span>
+  <span class="k">def</span> <span class="n">find_median_sorted_arrays1</span><span class="p">(</span><span class="n">nums1</span><span class="p">,</span> <span class="n">nums2</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">nums3</span> <span class="o">=</span> <span class="p">(</span><span class="n">nums1</span> <span class="o">++</span> <span class="n">nums2</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="no">Enum</span><span class="o">.</span><span class="n">sort</span>
+    <span class="k">if</span> <span class="n">rem</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">nums3</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">do</span>
+        <span class="no">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">nums3</span><span class="p">,</span> <span class="n">trunc</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">nums3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">else</span>
+        <span class="n">num1</span> <span class="o">=</span> <span class="no">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">nums3</span><span class="p">,</span> <span class="n">trunc</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">nums3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">num2</span> <span class="o">=</span> <span class="no">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">nums3</span><span class="p">,</span> <span class="n">trunc</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">nums3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">num1</span><span class="o">+</span><span class="n">num2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="n">find_median_sorted_arrays2</span><span class="p">(</span><span class="n">nums1</span><span class="p">,</span> <span class="n">nums2</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">nums3</span> <span class="o">=</span> <span class="p">(</span><span class="n">nums1</span> <span class="o">++</span> <span class="n">nums2</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="no">Enum</span><span class="o">.</span><span class="n">sort</span>
+    <span class="k">if</span> <span class="n">rem</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">nums3</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">do</span>
+        <span class="no">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">nums3</span><span class="p">,</span> <span class="n">trunc</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">nums3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">else</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="n">trunc</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">nums3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">num1</span> <span class="o">=</span> <span class="no">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">nums3</span><span class="p">,</span> <span class="n">middle</span><span class="p">)</span>
+        <span class="n">num2</span> <span class="o">=</span> <span class="no">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">nums3</span><span class="p">,</span> <span class="n">middle</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">num1</span><span class="o">+</span><span class="n">num2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="n">find_median_sorted_arrays3</span><span class="p">(</span><span class="n">nums1</span><span class="p">,</span> <span class="n">nums2</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">nums3</span> <span class="o">=</span> <span class="p">(</span><span class="n">nums1</span> <span class="o">++</span> <span class="n">nums2</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="no">Enum</span><span class="o">.</span><span class="n">sort</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">nums3</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">rem</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">do</span>
+        <span class="no">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">nums3</span><span class="p">,</span> <span class="n">trunc</span><span class="p">(</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">else</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="n">trunc</span><span class="p">(</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">num1</span> <span class="o">=</span> <span class="no">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">nums3</span><span class="p">,</span> <span class="n">middle</span><span class="p">)</span>
+        <span class="n">num2</span> <span class="o">=</span> <span class="no">Enum</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">nums3</span><span class="p">,</span> <span class="n">middle</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">num1</span><span class="o">+</span><span class="n">num2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>In the code above, with 3 different versions for the same code, i saved 75ms for a 5000000 integer elements list input between the first and the last version. The first version is the most naive one, the second one is a little bit better, and the last one is the best one. The difference between the first and the last one is the use of a variable to store the length of the array. This way, we don’t have to calculate the length of the array every time we need it.</p>
+
+<h3 id="2-code-profiling-and-optimization">2. Code Profiling and Optimization</h3>
+<p>Regularly profile your code to identify performance bottlenecks.
+Focus optimization efforts on the most time-consuming parts of your code.</p>
+<h5 id="examples-1">Examples:</h5>
+<h6 id="using-telemetry-to-profile-function-execution-time">Using :telemetry to Profile Function Execution Time</h6>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="ss">:telemetry</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="s2">"my_app_profile"</span><span class="p">,</span> <span class="p">[</span><span class="ss">:my_module</span><span class="p">,</span> <span class="ss">:my_function</span><span class="p">],</span> <span class="o">&amp;</span><span class="no">MyProfiler</span><span class="o">.</span><span class="n">profile</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="3-lazy-loading-and-deferred-execution">3. Lazy Loading and Deferred Execution</h3>
+<p>Implement lazy loading and deferred execution for resources and operations that are not immediately needed.
+Load data or execute operations only when necessary to conserve resources.</p>
+<h5 id="examples-2">Examples:</h5>
+<h6 id="using-stream-to-lazily-load-data">Using Stream to Lazily Load Data</h6>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data_stream</span> <span class="o">=</span> <span class="no">Stream</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="k">fn</span> <span class="o">-&gt;</span> <span class="no">File</span><span class="o">.</span><span class="n">stream!</span><span class="p">(</span><span class="s2">"large_file.txt"</span><span class="p">)</span> <span class="k">end</span><span class="p">,</span> <span class="o">&amp;</span><span class="no">IO</span><span class="o">.</span><span class="n">read</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span> <span class="ss">close:</span> <span class="o">&amp;</span><span class="no">File</span><span class="o">.</span><span class="n">close</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="4-caching-strategies">4. Caching Strategies</h3>
+<p>Implement caching mechanisms to store and reuse frequently requested data.
+Use caching for computations or results that do not change frequently.</p>
+
+<h3 id="5-database-optimization">5. Database Optimization</h3>
+<p>Optimize database queries by indexing columns and avoiding unnecessary joins.
+Consider denormalization for read-heavy operations.
+Use connection pooling to efficiently manage database connections.</p>
+<h5 id="examples-3">Examples:</h5>
+<h6 id="using-ecto-with-indexing-to-optimize-database-queries">Using Ecto with Indexing to Optimize Database Queries</h6>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">query</span> <span class="o">=</span> <span class="n">from</span><span class="p">(</span><span class="n">u</span> <span class="ow">in</span> <span class="no">User</span><span class="p">,</span> <span class="ss">where:</span> <span class="n">u</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">21</span><span class="p">,</span> <span class="ss">order_by:</span> <span class="p">[</span><span class="ss">asc:</span> <span class="n">u</span><span class="o">.</span><span class="n">name</span><span class="p">],</span> <span class="ss">select:</span> <span class="n">u</span><span class="p">)</span>
+<span class="no">Repo</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</code></pre></div></div>
+<h6 id="ecto-async-queries-with-task">Ecto Async Queries with Task</h6>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Example: Ecto Async Queries with Task</span>
+<span class="n">task</span> <span class="o">=</span> <span class="no">Task</span><span class="o">.</span><span class="n">async</span><span class="p">(</span><span class="k">fn</span> <span class="o">-&gt;</span>
+  <span class="no">Repo</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">from</span> <span class="n">u</span> <span class="ow">in</span> <span class="no">User</span><span class="p">,</span> <span class="ss">where:</span> <span class="n">u</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">21</span><span class="p">)</span>
+<span class="k">end</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="no">Task</span><span class="o">.</span><span class="n">await</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="6-parallelism-and-concurrency">6. Parallelism and Concurrency</h3>
+<p>Utilize parallel processing and concurrency to execute tasks concurrently when applicable.
+Take advantage of multi-core architectures to improve performance.</p>
+<h5 id="examples-4">Examples:</h5>
+<h6 id="using-task-to-execute-tasks-concurrently">Using Task to Execute Tasks Concurrently</h6>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">task1</span> <span class="o">=</span> <span class="no">Task</span><span class="o">.</span><span class="n">async</span><span class="p">(</span><span class="k">fn</span> <span class="o">-&gt;</span> <span class="n">expensive_operation_1</span><span class="p">()</span> <span class="k">end</span><span class="p">)</span>
+<span class="n">task2</span> <span class="o">=</span> <span class="no">Task</span><span class="o">.</span><span class="n">async</span><span class="p">(</span><span class="k">fn</span> <span class="o">-&gt;</span> <span class="n">expensive_operation_2</span><span class="p">()</span> <span class="k">end</span><span class="p">)</span>
+<span class="p">{</span><span class="n">result1</span><span class="p">,</span> <span class="n">result2</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="no">Task</span><span class="o">.</span><span class="n">await</span><span class="p">(</span><span class="n">task1</span><span class="p">),</span> <span class="no">Task</span><span class="o">.</span><span class="n">await</span><span class="p">(</span><span class="n">task2</span><span class="p">)}</span>
+</code></pre></div></div>
+
+<h3 id="8-minimize-network-requests">8. Minimize Network Requests</h3>
+<p>Reduce the number of external API calls and network requests.
+Implement batch processing for multiple requests to minimize the overhead of establishing connections.</p>
+<h5 id="examples-5">Examples:</h5>
+<h6 id="using-httpoison-to-batch-requests">Using HTTPoison to Batch Requests</h6>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tasks</span> <span class="o">=</span> <span class="no">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="k">fn</span> <span class="n">url</span> <span class="o">-&gt;</span> <span class="no">Task</span><span class="o">.</span><span class="n">async</span><span class="p">(</span><span class="k">fn</span> <span class="o">-&gt;</span> <span class="no">HTTPoison</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">end</span><span class="p">)</span> <span class="k">end</span><span class="p">)</span>
+<span class="n">responses</span> <span class="o">=</span> <span class="no">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">tasks</span><span class="p">,</span> <span class="o">&amp;</span><span class="no">Task</span><span class="o">.</span><span class="n">await</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="10-optimize-frontend-assets">10. Optimize Frontend Assets</h3>
+<p>Compress and minify CSS, JavaScript, and other frontend assets.
+Use content delivery networks (CDNs) to distribute static assets globally.</p>
+<h5 id="examples-6">Examples:</h5>
+<h6 id="using-webpack-to-minify-javascript">Using Webpack to Minify JavaScript</h6>
+<p>Webpack can be configured to compress and minify frontend assets</p>
+
+<h3 id="11-memory-management">11. Memory Management</h3>
+<p>Efficiently manage memory usage by releasing unused objects and avoiding memory leaks.
+Use appropriate data structures to minimize memory overhead.</p>
+<h5 id="examples-7">Examples:</h5>
+<h6 id="process-registry-for-resource-cleanup">Process Registry for Resource Cleanup</h6>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="ss">:global</span><span class="o">.</span><span class="n">register_name</span><span class="p">(</span><span class="ss">:my_resource</span><span class="p">,</span> <span class="n">self</span><span class="p">())</span>
+<span class="ss">:global</span><span class="o">.</span><span class="n">unregister_name</span><span class="p">(</span><span class="ss">:my_resource</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="12-implement-automated-testing-to-catch-performance-issues-early-in-development">12. Implement automated testing to catch performance issues early in development.</h3>
+<p>Regularly profile and benchmark your code to ensure ongoing optimization.</p>
+<h5 id="examples-8">Examples:</h5>
+<h6 id="using-exunit-to-test-for-performance">Using ExUnit to Test for Performance</h6>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">defmodule</span> <span class="no">MyModuleTest</span> <span class="k">do</span>
+  <span class="kn">use</span> <span class="no">ExUnit</span><span class="o">.</span><span class="no">Case</span>
+
+  <span class="n">test</span> <span class="s2">"should perform efficiently"</span> <span class="k">do</span>
+    <span class="c1"># Perform tests to ensure efficient code execution</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="lets-break-this-into-numbers">Let’s break this into numbers</h2>
+<p>Now, let’s break down the calculations for potential cost savings using AWS as an example. Please note that the actual cost structure may vary based on specific AWS services you are using and the pricing model applicable to those services.</p>
+
+<p>Let’s assume the original response time (ORT) is 10 milliseconds, and the improved response time (IRT) is 9.6 milliseconds (10 - 0.4).</p>
+
+<h4 id="calculate-the-number-of-requests-per-hour">Calculate the Number of Requests per Hour:</h4>
+
+<p>For the original response time (ORT):</p>
+<ul>
+  <li>Requests per Hour (ORT) = (3600 seconds) / (10 milliseconds / 1000) * 1000 = 360,000 requests/hour</li>
+</ul>
+
+<p>For the improved response time (IRT):</p>
+<ul>
+  <li>Requests per Hour (IRT) = (3600 seconds) / (9.6 milliseconds / 1000) * 1000 = 375,000 requests/hour</li>
+</ul>
+
+<h4 id="determine-the-cost-per-request">Determine the Cost per Request:</h4>
+
+<p>Let’s say it’s $0.000001 per request.</p>
+
+<h4 id="calculate-the-cost-savings-per-request">Calculate the Cost Savings per Request:</h4>
+
+<p>Cost Savings per Request = (10 - 9.6) * $0.000001 = $0.0000004</p>
+
+<h4 id="calculate-the-total-cost-savings-per-hour">Calculate the Total Cost Savings per Hour:</h4>
+
+<p>Total Cost Savings per Hour = $0.0000004 * 360,000 = $0.144</p>
+
+<h4 id="calculate-the-total-cost-savings-per-year">Calculate the Total Cost Savings per Year:</h4>
+
+<p>Total Cost Savings per Year = $0.144 * 24 hours * 365 days = $1261.44</p>
+
+<p>So, in this simplified example, improving the response time by 0.4 milliseconds could potentially save $0.144 per hour for 1000 requests. Keep in mind that these numbers are illustrative, and actual costs will depend on your specific AWS services and pricing. Always refer to the latest AWS pricing documentation for accurate and up-to-date information.</p>
+
+    </div>
+</article>
+
+    </main>
+</body>
+</html>
