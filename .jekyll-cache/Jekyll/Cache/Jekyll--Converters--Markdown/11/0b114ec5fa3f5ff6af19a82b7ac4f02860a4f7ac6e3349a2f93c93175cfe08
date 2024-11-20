@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <title>Home - Mário Rodrigues</title>
-</head>
-<body>    
-    <main>
-        <h2 id="mário-rodrigues">Mário Rodrigues</h2>
+I"�<h2 id="mário-rodrigues">Mário Rodrigues</h2>
 <p>Software Engineering Student</p>
 
 <ul id="post-list">
@@ -54,7 +44,4 @@
     </a>
 
 </ul>
-
-    </main>
-</body>
-</html>
+:ET

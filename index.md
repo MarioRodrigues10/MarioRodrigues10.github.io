@@ -9,10 +9,12 @@ Software Engineering Student
 
 <ul id="post-list">
 {% for post in site.posts %}
-    <li id="post">
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <br>
-        <small>Published at: {{ post.date | date: '%d/%m/%Y' }}</small>
-    </li>
+    <a href="{{ post.url }}">
+        <li id="post">
+            <h1>{{ post.title }}</h1>
+            <br>
+            <small>Published at: {{ post.date | date: '%d/%m/%Y' }}</small>
+        </li>
+    </a>
 {% endfor %}
 </ul>
